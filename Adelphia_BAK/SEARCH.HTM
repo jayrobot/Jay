@@ -1,0 +1,142 @@
+<!doctype html public "-//IETF//DTD HTML//EN">
+<HTML>
+
+<HEAD>
+<TITLE>Search Jay's Music Database</TITLE>
+<META NAME="AUTHOR" CONTENT="Jay Robohn">
+</HEAD>
+
+<body background="BackBlue.gif"
+      BGCOLOR="#000000"
+      TEXT="#E5FF00"
+      LINK="#FFFFFF"
+      VLINK="#72ffcb"
+      ALINK="#EE0000">
+
+<CENTER>
+<IMG SRC=TTTitle.gif Alt="Jay's Tape Trading Page" BORDER=0>
+<HR SIZE=8 ALIGN=CENTER WIDTH=66%>
+</CENTER>
+
+<B>
+I'm very sorry to anyone who has tried to use this feature and
+had it not work for them. My damn partner keeps taking the CGI server down
+in my office when I'm not there. And I've had a bugs, too (ahem, hmmmh).
+I'll do my best to make sure this won't happen again, so please take
+advantage of this feature and send me
+<A HREF="mailto:JayRobot@capital.net"> feedback</A>
+on how you like it and how you'd like to see it improved.
+</B>
+<BR>
+
+<FORM ACTION="/cgi-win/wwcgi.dll?JayWeb~Search" METHOD="POST">
+<B>Band: </B><INPUT NAME="SearchText" TYPE="TEXT" ROWS=1 SIZE="40"><BR><BR>
+
+<B>Title:   </B><INPUT NAME="SearchTitle" TYPE="TEXT" ROWS=1 SIZE="60"><BR><BR>
+
+<B>Country (multiple selections allowed): </B><BR>
+<SELECT NAME="Country" MULTIPLE SIZE=5>
+<OPTION SELECTED VALUE="*********">All Countries
+<OPTION VALUE="000000017">Argentina
+<OPTION VALUE="000000018">Australia
+<OPTION VALUE="000000028">Austria
+<OPTION VALUE="000000002">Belgium
+<OPTION VALUE="000000013">Brazil
+<OPTION VALUE="000000026">Bulgaria
+<OPTION VALUE="000000011">Canada
+<OPTION VALUE="000000019">Chile
+<OPTION VALUE="000000041">Columbia
+<OPTION VALUE="000000036">Costa Rica
+<OPTION VALUE="000000032">Czech Republic
+<OPTION VALUE="000000006">Denmark
+<OPTION VALUE="000000009">Finland
+<OPTION VALUE="000000016">France
+<OPTION VALUE="000000003">Germany
+<OPTION VALUE="000000030">Greece
+<OPTION VALUE="000000020">Hungary
+<OPTION VALUE="000000034">Ireland
+<OPTION VALUE="000000031">Israel
+<OPTION VALUE="000000021">Italy
+<OPTION VALUE="000000004">Japan
+<OPTION VALUE="000000025">Lithuania
+<OPTION VALUE="000000022">Luxembourg
+<OPTION VALUE="000000024">Malaysia
+<OPTION VALUE="000000012">Mexico
+<OPTION VALUE="000000015">Netherlands
+<OPTION VALUE="000000033">New Zealand
+<OPTION VALUE="000000008">Norway
+<OPTION VALUE="000000040">Philipines
+<OPTION VALUE="000000014">Poland
+<OPTION VALUE="000000023">Portugal
+<OPTION VALUE="000000029">Puerto Rico
+<OPTION VALUE="000000039">Romania
+<OPTION VALUE="000000037">Russia
+<OPTION VALUE="000000038">Scotland
+<OPTION VALUE="000000035">Singapore
+<OPTION VALUE="000000027">Spain
+<OPTION VALUE="000000007">Sweden
+<OPTION VALUE="000000010">Switzerland
+<OPTION VALUE="000000001">USA
+<OPTION VALUE="000000005">United Kingdom
+<OPTION VALUE="000000100">** Unknown **
+</SELECT><p>
+
+<B>Date Range (enter as MM/DD/YY): </B><BR>
+<B>   Start:</B><INPUT NAME="StartDate" TYPE="TEXT" ROWS=1 SIZE="8">
+<B>     End:</B><INPUT NAME="EndDate" TYPE="TEXT" ROWS=1 SIZE="8"><BR><BR>
+
+<B>Label (Releases only): </B><INPUT NAME="SearchLabel" TYPE="TEXT" ROWS=1 SIZE="40"><BR><BR>
+
+<B>Type (multiple selections allowed): </B><BR>
+<SELECT NAME="Type" MULTIPLE SIZE=8>
+<OPTION SELECTED>All Types
+<OPTION>Vinyl
+<OPTION>CD
+<OPTION>Tape
+<OPTION>Dub
+<OPTION>Demos
+<OPTION>Rehearsals
+<OPTION>Live Tapes
+</SELECT><p>
+
+<B>Sub-Type (multiple selections allowed): </B><BR>
+<SELECT NAME="SubType" MULTIPLE SIZE=13>
+<OPTION SELECTED>All Sub-Types
+<OPTION>10"
+<OPTION>2CD
+<OPTION>2LP
+<OPTION>3LP
+<OPTION>7"
+<OPTION>CD
+<OPTION>CD5
+<OPTION>EP
+<OPTION>LP
+<OPTION>MCD
+<OPTION>MLP
+<OPTION>Single
+</SELECT><p>
+
+<INPUT TYPE="SUBMIT" NAME="SubmitButton" VALUE="Search" SIZE="15">
+<INPUT NAME="Reset Form" TYPE="RESET" VALUE="Clear Form" ALIGN=top>
+</FORM>
+
+<HR>
+<FONT SIZE=-1>
+<ADDRESS>
+Please send bug reports or suggestions for improvements/enhancements here:
+(<A HREF="mailto:JayRobot@capital.net"> JayRobot@capital.net</A>)
+</ADDRESS>
+
+<script language="JavaScript">
+<!--
+document.write("Document last modified: " + document.lastModified +
+               " (US - Eastern Standard Time)");
+// -->
+</SCRIPT>
+</FONT>
+
+<BR>
+<A HREF="Trading.htm"><IMG SRC="backhome.gif" ALIGN=CENTER BORDER=2 ALT="back-to-home">Back to JayRobot's Tape Trading Page</A>
+
+</BODY>
+</HTML>

@@ -1,0 +1,113 @@
+<html>
+<head>
+   <title>Heady Metal
+</title>
+<script>
+
+
+
+<!--
+
+/*************************************************************
+ * fade script ver0.1 by Kouichirou@Eto.com 1996/02/20
+ * Copyright (c) 1996 Kouichirou Eto. All Rights Reserved.
+ */
+
+function makearray(n) {
+    this.length = n;
+    for(var i = 1; i <= n; i++)
+        this[i] = 0;
+    return this;
+}
+
+hexa = new makearray(16);
+for(var i = 0; i < 10; i++)
+    hexa[i] = i;
+hexa[10]="a"; hexa[11]="b"; hexa[12]="c";
+hexa[13]="d"; hexa[14]="e"; hexa[15]="f";
+
+function hex(i) {
+    if (i < 0)
+        return "00";
+    else if (i > 255)
+        return "ff";
+    else
+        return "" + hexa[Math.floor(i/16)] + hexa[i%16];
+}
+
+function setbgColor(r, g, b) {
+    var hr = hex(r); var hg = hex(g); var hb = hex(b);
+    document.bgColor = "#"+hr+hg+hb;
+}
+
+function fade(sr, sg, sb, er, eg, eb, step) {
+    for(var i = 0; i <= step; i++) {
+        setbgColor(
+        Math.floor(sr * ((step-i)/step) + er * (i/step)),
+        Math.floor(sg * ((step-i)/step) + eg * (i/step)),
+        Math.floor(sb * ((step-i)/step) + eb * (i/step)));
+    }
+}
+
+function fadein() {
+    fade(0,0,0, 255,255,255, 64);
+}
+
+/* do fadein */
+fadein();
+
+/***** end fade script *****/
+/************************************************************/
+
+// -->
+
+</script>
+</head>
+<body bgcolor="#FFFFFF">
+
+<center><img src="gfx/logo.jpg" alt="Heady Metal Logo" border=0 height=88 width=478 align=bottom>
+<br><img src="gfx/montage.jpg" lowsrc="gfx/lo_montage.gif" alt="CD Cover Montage" border=0 height=159 width=434 align=bottom></center>
+
+<table>
+<tr>
+<td>
+<table BORDER>
+<tr><td align=center><a href="framerev.html">Heady Metal Reviews</a></td></tr>
+<tr><td align=center><a href="ewreview.html">Eric Welty's Reviews</a></td></tr>
+<tr><td align=center><a href="chat.html">Java Chat<BR>Chat w/others!</a></td></tr>
+<tr><td align=center><a href="jukebox.html">Jukebox</a></td></tr>
+<tr><td align=center><a href="audio_player.html">Audio Player</a></td></tr>
+<tr><td align=center><a href="submissions.html">Submissions</a></td></tr>
+<tr><td align=center><a href="links.html">Links</a></td></tr>
+<tr><td align=center><a href="credits.html">Credits, Thanks, and Info.</a></td></tr>
+</table>
+</td>
+
+<td VALIGN=top>Welcome to the best way to <b>hear</b>
+progressive metal/rock bands. If you are a fan of artists like Queensrÿche,
+Dream Theater, Fates Warning, or Crimson Glory, chances are there are a
+lot of other talented bands you never get to hear. American radio gives
+little coverage to progressive metal. This site covers nothing else.
+
+<P>Online are reviews, links, and most importantly, <b>audio clips</b>
+of different progressive metal bands.
+
+<P>Xing's MPEG Audio player is not be able to handle long filenames properly in Windows 95. I have been using 8+3 filenames for now. When this changes, please change players for better sound and support.
+<P>I just replaced almost everything in my computer and I am up and running again.
+<P>Last update:<A HREF="changes.html" TARGET="_top">August 10, 1996 - click here for list of changes by date</A>
+
+<P><A HREF="matheos_irc.html">IRC interview with Jim Matheos transcript</A> now available!
+</TD></tr>
+</table>
+
+<center>
+You are visitor #: <img src="http://www.airmail.net/cgi-bin/Countdp.cgi?corey.dat&style=d&nopad&trgb=0,0,0"> since
+3/25/96.
+<br>
+<br><font SIZE=-1>These pages make extensive use of forms and tables. Be
+sure you are using a Forms/Tables capable browser.
+<br>Heady Metal is maintained by: <a href="mailto:coreymc@interaccess.com">Corey
+McKenzie</a></font></center>
+
+</body>
+</html>

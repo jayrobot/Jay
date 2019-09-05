@@ -1,0 +1,56 @@
+<html><head><title>DEATH DOOM PUNK INDUSTRIAL</title></head>
+<FRAMESET COLS="310, *"><frameset rows="52,*"><frameset cols="200,90">
+<frame src="clock.html" name=clock scrolling=no marginwidth=0 noresize>
+<frame src="counter.html" name=clock scrolling=no marginwidth=0 noresize> 
+</frameset>
+<FRAME SRC="contents.html" NAME="Contents" noresize></frameset>
+<FRAME Src="intro.html" Name="view_win" noresize>
+</frameset>
+<noframe>
+<h1 align=center><blink>Frame ALERT!</blink>
+</h1><p>This document is designed to be viewed using <b>Netscape 2.0</b>'s 
+Frame features. If you are seeing this message, you are using a frame 
+<i>challenged</i> browser.</p><p>
+A <b>Frame-capable</b> browser can be gotten from <a href="http://home.netscape.com">Netscape Communications</a>.</p></noframes></frameset>
+
+<BODY onLoad="timerONE=window.setTimeout('scrollit_r2l(100)',500);">
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Beginning of JavaScript Applet -------------------
+function scrollit_r2l(seed)
+{
+  var msg  = "News of the day, Look out for the new Pitch Shifter Infotainment out on Earache Records in early May this CD will contain a video clip view able on any Mac or Windows Machine.";
+  var out = " ";        
+  var c   = 1; 
+  if (seed > 100) {
+    seed--;                
+    var cmd="scrollit_r2l(" + seed + ")";                
+    timerTwo=window.setTimeout(cmd,100);
+  }
+  else if (seed <= 100 && seed > 0) {                
+    for (c=0 ; c < seed ; c++) {
+      out+=" ";
+    }
+    out+=msg;
+    seed--;
+    var cmd="scrollit_r2l(" + seed + ")"; 
+    window.status=out;                
+    timerTwo=window.setTimeout(cmd,100);        
+  }        
+  else if (seed <= 0) {                
+    if (-seed < msg.length) {                        
+    out+=msg.substring(-seed,msg.length);           
+    seed--;                        
+    var cmd="scrollit_r2l(" + seed + ")";
+    window.status=out;                        
+    timerTwo=window.setTimeout(cmd,100);                
+    }
+    else {                        
+      window.status=" ";                        
+      timerTwo=window.setTimeout("scrollit_r2l(100)",75);                
+    }        
+  }
+}
+// -- End of JavaScript code -------------- -->
+</SCRIPT>
+</body>
+</html>

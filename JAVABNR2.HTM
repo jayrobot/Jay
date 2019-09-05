@@ -1,0 +1,287 @@
+<HTML>
+<HEAD>
+<title>TOTAL CONSECRATION DISTRIBUTION</title>
+<script language="JavaScript">
+<!-- begin
+// global variables
+
+var MESSAGE = "                     [===============]  Welcome to Total Consecration Distribution's Homepage.  No Minors ! No Trends ! No Posers ! ";
+var SPEED   = 10;
+
+var id,pause=0,position=0;
+function banner() {
+	// variables declaration
+	var i,k,msg=MESSAGE; /*document.form1.message.value*/;
+
+	// increase msg
+	k=(66/msg.length)+1;
+	for(i=0;i<=k;i++) msg+=" "+msg;
+
+	// show it to the window
+	document.form2.banner.value=msg.substring(position,position+50);
+
+	// show it to the status bar
+	//window.status=msg.substring(position,position+66);
+
+	// set new position
+	if(position++==msg.length /*document.form1.message.value.length*/) position=0;
+
+	// repeat at entered speed 
+	id=setTimeout("banner()",1000/SPEED); }
+function action() {
+	// stop rolling
+	if(!pause) {
+		clearTimeout(id);
+		pause=1; }
+
+	// continue rolling
+	else {
+		banner();
+		pause=0; } }
+// End -->
+</script>
+<script>
+<!--
+/* 
+	Cookies Demo
+	By Jerry Aman, Optima System, July 28, 1996.
+   	Cookie Functions written by Bill Dortch, hIdaho Design.
+
+	Part of the PageSpinner distribution.
+
+	We will not be held responsible for any unwanted 
+	effects due to the usage of this script or any derivative.  
+	No warrantees for usability for any specific application 
+	are given or implied.
+
+	You are free to use and modify this script,
+	if credits are kept in the source code
+*/
+
+	var cookieVisitID 	= 'vm_LastVisit';	
+	var cookieNumVisitID 	= 'vm_NumVisits';	
+
+						// Change 'my_LastVisit' and 'my_NumVisits'
+						// to something unique for
+						// the current page, or else it
+						// won't work correctly if other uses
+						// this script!
+	var gLastVisit;
+	var gNumVisits;
+
+	SetLastVisit();	// Execute when loading page
+
+	function GetLastVisit ()
+	{
+
+		if ( gLastVisit == "")
+		{
+			return "1<BR>" + today = new Date()
+		}
+		else 
+		{
+			var oldVisitDate = new Date(gLastVisit);
+			return 	" " 
+					+ gNumVisits +"<BR> " 
+					+ gLastVisit
+		}
+	}
+
+
+	function SetLastVisit (name, value) 
+	{
+		var newVisitDate = new Date();
+		var expDate = new Date (); 
+		var numVisits = 2;
+
+			// The expDate is the date when the cookie should
+			// expire, we will keep it for a year
+		expDate.setTime( expDate.getTime() + (365 * 24 * 60 * 60 * 1000) ); 
+
+			// Info about last visit
+		if (GetCookie (cookieVisitID) != null)
+			gLastVisit = GetCookie (cookieVisitID);
+		else
+			gLastVisit = "";
+
+		if (GetCookie (cookieNumVisitID) != null)
+			gNumVisits = GetCookie (cookieNumVisitID);	
+		else
+			gNumVisits = 1;
+
+			// Use eval() to convert a string to a number
+		numVisits = eval(gNumVisits) +1;	
+
+			// Store info about this visit
+		SetCookie( cookieVisitID, 	newVisitDate, expDate); 
+		SetCookie( cookieNumVisitID, numVisits, expDate); 
+	}
+
+    // ---------------------------------------------------------------
+    //  Cookie Functions - Second Helping  (21-Jan-96)
+    //  Written by:  Bill Dortch, hIdaho Design <BDORTCH@NETW.COM>
+    //  The following functions are released to the public domain.
+    //
+    //  The Second Helping version of the cookie functions dispenses with
+    //  my encode and decode functions, in favor of JavaScript's new built-in
+    //  escape and unescape functions, which do more complete encoding, and
+    //  which are probably much faster.
+    //
+    //  The new version also extends the SetCookie function, though in
+    //  a backward-compatible manner, so if you used the First Helping of
+    //  cookie functions as they were written, you will not need to change any
+    //  code, unless you want to take advantage of the new capabilities.
+    //
+    //  The following changes were made to SetCookie:
+    //
+    //  1.  The expires parameter is now optional - that is, you can omit
+    //      it instead of passing it null to expire the cookie at the end
+    //      of the current session.
+    //
+    //  2.  An optional path parameter has been added.
+    //
+    //  3.  An optional domain parameter has been added.
+    //
+    //  4.  An optional secure parameter has been added.
+    //
+    //  For information on the significance of these parameters, and
+    //  and on cookies in general, please refer to the official cookie
+    //  spec, at:
+    //
+    //      http://www.netscape.com/newsref/std/cookie_spec.html    
+    //
+    //
+    // "Internal" function to return the decoded value of a cookie
+    //
+    function getCookieVal (offset) {
+      var endstr = document.cookie.indexOf (";", offset);
+      if (endstr == -1)
+        endstr = document.cookie.length;
+      return unescape(document.cookie.substring(offset, endstr));
+    }
+
+    //
+    //  Function to return the value of the cookie specified by "name".
+    //    name - String object containing the cookie name.
+    //    returns - String object containing the cookie value, or null if
+    //      the cookie does not exist.
+    //
+    function GetCookie (name) {
+      var arg = name + "=";
+      var alen = arg.length;
+      var clen = document.cookie.length;
+      var i = 0;
+      while (i < clen) {
+        var j = i + alen;
+        if (document.cookie.substring(i, j) == arg)
+          return getCookieVal (j);
+        i = document.cookie.indexOf(" ", i) + 1;
+        if (i == 0) break; 
+      }
+      return null;
+    }
+
+    //
+    //  Function to create or update a cookie.
+    //    name - String object object containing the cookie name.
+    //    value - String object containing the cookie value.  May contain
+    //      any valid string characters.
+    //    [expires] - Date object containing the expiration data of the cookie.  If
+    //      omitted or null, expires the cookie at the end of the current session.
+    //    [path] - String object indicating the path for which the cookie is valid.
+    //      If omitted or null, uses the path of the calling document.
+    //    [domain] - String object indicating the domain for which the cookie is
+    //      valid.  If omitted or null, uses the domain of the calling document.
+    //    [secure] - Boolean (true/false) value indicating whether cookie transmission
+    //      requires a secure channel (HTTPS).  
+    //
+    //  The first two parameters are required.  The others, if supplied, must
+    //  be passed in the order listed above.  To omit an unused optional field,
+    //  use null as a place holder.  For example, to call SetCookie using name,
+    //  value and path, you would code:
+    //
+    //      SetCookie ("myCookieName", "myCookieValue", null, "/");
+    //
+    //  Note that trailing omitted parameters do not require a placeholder.
+    //
+    //  To set a secure cookie for path "/myPath", that expires after the
+    //  current session, you might code:
+    //
+    //      SetCookie (myCookieVar, cookieValueVar, null, "/myPath", null, true);
+    //
+    function SetCookie (name, value) {
+      var argv = SetCookie.arguments;
+      var argc = SetCookie.arguments.length;
+      var expires = (argc > 2) ? argv[2] : null;
+      var path = (argc > 3) ? argv[3] : null;
+      var domain = (argc > 4) ? argv[4] : null;
+      var secure = (argc > 5) ? argv[5] : false;
+      document.cookie = name + "=" + escape (value) +
+        ((expires == null) ? "" : ("; expires=" + expires.toGMTString())) +
+        ((path == null) ? "" : ("; path=" + path)) +
+        ((domain == null) ? "" : ("; domain=" + domain)) +
+        ((secure == true) ? "; secure" : "");
+    }
+
+    //  Function to delete a cookie. (Sets expiration date to current date/time)
+    //    name - String object containing the cookie name
+    //
+    function DeleteCookie (name) {
+      var exp = new Date();
+      exp.setTime (exp.getTime() - 1);  // This cookie is history
+      var cval = GetCookie (name);
+      document.cookie = name + "=" + cval + "; expires=" + exp.toGMTString();
+    }
+
+// -->
+</script>
+
+</HEAD>
+<BODY TEXT="#FF0000" BGCOLOR="#000000" LINK="#0000FF" VLINK="#0000FF" ALINK="#0000A0" BACKGROUND="rekablue.gif">
+
+
+<H4 ALIGN=CENTER><IMG SRC="total_c.gif" HEIGHT=67 WIDTH=451></H4>
+
+<CENTER><P><IMG SRC="line1.gif" HEIGHT=14 WIDTH=500></P></CENTER>
+<SCRIPT language="JavaScript">
+<!--
+	document.write("<CENTER><form name=\"form2\">");
+	document.write("<input type=\"text\" name=\"banner\" size=\"40\">");
+	document.write("</form></CENTER>");
+	banner();
+// -->
+</SCRIPT>
+
+<CENTER><P><A HREF="index2.html" onMouseOver="(window.status='Enter...') ; return true"><IMG SRC="try1.gif" LOWSRC="mainpic.gif" BORDER=0 HEIGHT=194 WIDTH=189></A></P></CENTER>
+<center>
+<SCRIPT LANGUAGE="LiveScript">
+<!--
+	document.write("<P><I>Last edited: ",document.lastModified,"</I></P>");
+//  -->
+</SCRIPT>
+</center>
+<CENTER><TABLE BORDER=3 CELLPADDING=2 BGCOLOR="#000000" >
+<TR>
+<TD>
+<CENTER><DT><B><I><FONT SIZE=+2><A HREF="index2.html" onMouseOver="(window.status='Enter...') ; return true " ><blink>Enter.....==&gt;</blink></A></FONT></I></B></DT></CENTER>
+</TD>
+</TR>
+</TABLE></CENTER>
+
+
+<h5><b>Date :<script>
+<!--
+document.write(today = new Date())
+// -->
+</script></h5></b><p>
+
+<h5><b>Browser : <script>
+<!--
+document.write(navigator.appName," ", navigator.appVersion)
+// >
+</script></h5></b><p>
+
+</BODY>
+</HTML>
+
+--

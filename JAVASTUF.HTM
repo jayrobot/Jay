@@ -1,0 +1,90 @@
+<HTML>
+<HEAD>
+<TITLE>Hot Calander</TITLE>
+</HEAD>
+<BODY BACKGROUND="backlef.gif" BGCOLOR="#FFFFFF" TEXT="#0000FF" LINK="#00B189" VLINK="#6FA3D1" ALINK="#00AB00">
+<BODY>
+<!- Beginning of Java -> 
+<SCRIPT LANGUAGE="JavaScript">
+
+
+<!--
+
+function snapIn(jumpSpaces,position) {
+  var msg = "YOU CAN GET THE ORIGINAL PICTURES BY MAILING ME !"
+  var out = ""
+
+  if (killScroll) {return false}
+
+  for (var i=0; i<position; i++) 
+    {out += msg.charAt(i)}
+
+  for (i=1;i<jumpSpaces;i++) 
+    {out += " "}
+
+  out += msg.charAt(position)
+
+  window.status = out
+
+  if (jumpSpaces <= 1) {
+    position++
+    if (msg.charAt(position) == ' ') 
+      {position++ }
+    jumpSpaces = 100-position
+  } else if (jumpSpaces >  3)
+       {jumpSpaces *= .75}
+  else
+    {jumpSpaces--}
+
+  if (position != msg.length) {
+    var cmd = "snapIn(" + jumpSpaces + "," + position + ")";
+    scrollID = window.setTimeout(cmd,5);
+  } else {
+    scrolling = false
+    return false 
+  }
+  return true
+}
+
+function snapSetup() {
+ if (scrolling)   
+  if (!confirm('Re-initialize snapIn?'))
+   return false   
+   killScroll = true  
+   scrolling = true   
+   var killID = window.setTimeout('killScroll=false',6)
+   scrollID = window.setTimeout('snapIn(100,0)',10)
+   return true    
+}
+var scrollID = Object
+var scrolling = false
+var killScroll = false
+//-------------------------------------------------------------
+//-------------------------------------------------------------
+// -->
+
+
+</SCRIPT>
+<BODY onLoad="snapSetup()">
+<!- End of Java ->
+<!- Beginning of calender ->
+<CENTER>
+
+<IMG ALIGN=left SRC="may96.jpg">
+<TABLE COLSPEC="C20 C20 C20 C20 C20 C20 L20 L20" BORDER=4 WIDTH=5 HEIGHT=5 CELLPADDING=10 CELLSPACING=2>
+<CAPTION ALIGN=top><FONT SIZE=10><FONT COLOR=RED>MAY</FONT></FONT></CAPTION>
+<TR><TH>MON</TH><TH></TH><TH>6</TH><TH>13</TH><TH>20</TH><TH>27</TH></TR>
+<TR><TH>TUE</TH><TH></TH><TH>7</TH><TH>14</TH><TH>21</TH><TH>28</TH></TR>
+<TR><TH>WED</TH><TH>1</TH><TH>8</TH><TH>15</TH><TH>22</TH><TH>29</TH></TR>
+<TR><TH>THU</TH><TH>2</TH><TH>9</TH><TH>16</TH><TH>23</TH><TH>30</TH></TR>
+<TR><TH>FRI</TH><TH>3</TH><TH>10</TH><TH>17</TH><TH>24</TH><TH>31</TH></TR>
+<TR><TH>SAT</TH><TH>4</TH><TH>11</TH><TH>18</TH><TH>25</TH><TH></TH></TR>
+<TR><TH>SUN</TH><TH>5</TH><TH>12</TH><TH>19</TH><TH>26</TH><TH></TH></TR>
+</TABLE>
+
+<!- End of calender ->
+
+
+
+</BODY>
+</HTML>

@@ -1,0 +1,161 @@
+<HTML>
+<HEAD>
+<TITLE>The Bootleg Tape Centre Mail Form</TITLE>
+<!-- Script At the Bottom -->
+</HEAD>
+<BODY BGCOLOR = "#000000" TEXT = "White" LINK = "#B8860B" ALINK = "#8B0000" VLINK = "#B8860B">
+<SCRIPT LANGUAGE="JavaScript">
+</SCRIPT>
+<!-- begin nfheader -->
+<!-- end nfheader -->
+<BLOCKQUOTE>
+<FONT FACE = "Comic Sans MS"  SIZE = 4>The Bootleg Tape Centre Mail Form</FONT>
+<BR><BR>
+<FONT FACE = "Comic Sans MS"  SIZE = 2>
+This e-mail form is so I can read e-mail in a more orderly fashion, and therefore answer it quickly (I'm sorry if it seams a little impersonal). If you have any questions, comments, or suggestions please fill out the form, you <STRONG>do not</STRONG> need to include your e-mail address, it's automatically sent along. One more thing, this form uses a "cookie" to remember your name every time you come back.
+<BR><BR>
+If you wish to <A HREF = "mailto:gcawsey@private.nethead.co.uk?subject=Trade Off">mail me</A> directly then do so.
+<BR><BR><BR>
+<FORM 
+ NAME = "mail_form" 
+ ACTION = "mailto:gcawsey@private.nethead.co.uk?subject=Trade Off" 
+ METHOD = "POST" 
+ ENCTYPE = "text/plain"
+ onSubmit="return formCheck()">
+<INPUT TYPE = "hidden" SIZE = 0 NAME = "Info">
+<TABLE BORDER = 1 CELLPADDING = 10>
+<TR><TD>
+<FONT FACE = "Comic Sans MS"  SIZE = 2>
+Name:
+</FONT>
+<INPUT TYPE = "text" NAME = "Name">
+</TD><TD>
+<FONT FACE = "Comic Sans MS"  SIZE = 2>
+Subject:
+</FONT>
+<INPUT TYPE = "text" NAME = "Subject" SIZE = 28>
+</TD></TR><TR><TD COLSPAN = 2>
+<FONT FACE = "Comic Sans MS"  SIZE = 2>
+<STRONG>Comments, Suggestions:</STRONG>
+</FONT>
+<BR><BR>
+<TEXTAREA WRAP = "PHYSICAL" NAME = "Comments, Suggestions" COLS = 64 ROWS = 6>
+</TEXTAREA>
+</TD></TR>
+<TR><TD COLSPAN = 2>
+<FONT FACE = "Comic Sans MS"  SIZE = 2>
+<STRONG>Questions:</STRONG>
+</FONT>
+<BR><BR>
+<TEXTAREA WRAP = "PHYSICAL" NAME = "Questions" COLS = 64 ROWS = 6>
+</TEXTAREA>
+</TD></TR>
+<TR><TD COLSPAN = 2>
+        <TABLE BORDER = 0 CELLPADDING = 0>
+        <TR><TD>
+        </TD><TD>
+        <INPUT TYPE = "submit" VALUE = "Mail Me!">
+        </TD><TD>
+        <INPUT TYPE = "button" VALUE = "Just Kidding" onClick = "history.back();">
+        </TD></TR>
+        </TABLE>
+</TD></TR>
+</TABLE>
+</FORM>
+</BLOCKQUOTE>
+<BR><BR><BR><CENTER>
+</BODY>
+<SCRIPT LANGUAGE = "JavaScript">
+document.mail_form.Info.value = navigator.userAgent;
+onlytest = false;
+
+function getCookieVal (offset)
+{
+        var endstr = document.cookie.indexOf (";", offset);
+               if (endstr == -1)
+               endstr = document.cookie.length;
+        return unescape(document.cookie.substring(offset, endstr));
+}
+
+
+function GetCookie (name) 
+{
+        var arg = name + "=";
+        var alen = arg.length;
+        var clen = document.cookie.length;
+        var i = 0;
+        while (i < clen) {
+        var j = i + alen;
+                if (document.cookie.substring(i, j) == arg)
+                return getCookieVal (j);
+        i = document.cookie.indexOf(" ", i) + 1;
+                if (i == 0) break; 
+        }
+
+return null;
+}
+
+
+function SetCookie (name, value) 
+{
+        var argv = SetCookie.arguments;
+        var argc = SetCookie.arguments.length;
+        var expires = (argc > 2) ? argv[2] : null;
+        var path = (argc > 3) ? argv[3] : null;
+        var domain = (argc > 4) ? argv[4] : null;
+        var secure = (argc > 5) ? argv[5] : false;
+        document.cookie = name + "=" + escape (value) +
+        ((expires == null) ? "" : ("; expires=" + expires.toGMTString())) +
+        ((path == null) ? "" : ("; path=" + path)) +
+        ((domain == null) ? "" : ("; domain=" + domain)) +
+        ((secure == true) ? "; secure" : "");
+}
+
+
+function show_name()
+        {
+        if(GetCookie("jtotwemailname") != null)
+        document.mail_form.Name.value = GetCookie("jtotwemailname");
+        }
+
+function set_name()
+        {
+        var username = document.mail_form.Name.value;
+        var expdate = new Date ();
+        expdate.setTime (expdate.getTime() + (24 * 60 * 60 * 1000 * 365));
+        SetCookie("jtotwemailname", username, expdate);
+        }
+
+show_name();       
+
+<!-- Forms Validation: Upcoming Tip
+function formCheck(form) 
+{
+        if (document.mail_form.Name.value == "" && document.mail_form.Subject.value == "") 
+        {
+        alert("Please put in your name and a subject.");
+        return false;
+        }
+       
+        else if (document.mail_form.Subject.value == "") 
+        {
+        alert("Please put in a subject.");
+        return false;
+        }
+
+        else if (document.mail_form.Name.value == "") 
+        {
+        alert("Please put in your name.");
+        return false;
+        }
+ 
+        else 
+        {
+        set_name();
+        return true;
+        }
+}
+//-->
+</SCRIPT>
+
+</HTML>

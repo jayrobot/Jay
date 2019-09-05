@@ -1,0 +1,41 @@
+<HTML>
+<HEAD>
+<SCRIPT LANGUAGE='JavaScript'>
+<!--
+var nsframes = null;
+if (top.frames.length) {nsframes = parent.nsframes;}
+if( nsframes == 1 && nsframes != 0 )
+{
+  var blank4 = 1;
+  var blank3 = 1;
+  var blank2 = 0;
+  stuff2 = new parent.other( "f.gif", "7" );
+  frame2 = new parent.makearray( stuff2.len );
+  frame2[ 0 ] = new parent.listing( "/escapes/index.html", 0, 0 );
+  frame2[ 1 ] = new parent.listing( "/comprod/index.html", 0, 0 );
+  frame2[ 2 ] = new parent.listing( "/comprod/business_solutions/index.html", 0, 0 );
+  frame2[ 3 ] = new parent.listing( "http://merchant.netscape.com/netstore/index.html", 0, 1 );
+  frame2[ 4 ] = new parent.listing( "/assist/index.html", 0, 0 );
+  frame2[ 5 ] = new parent.listing( "/commun/index.html", 0, 0 );
+  frame2[ 6 ] = new parent.listing( "/newsref/index.html", 0, 0 );
+  var blank1 = 0;
+  stuff1 = new parent.other( "home.gif", "7" );
+  frame1 = new parent.makearray( stuff1.len );
+  frame1[ 0 ] = new parent.listing( "/ndx.html", 1, 0 );
+  frame1[ 1 ] = new parent.listing( "/ndx.html", 0, 0 );
+  frame1[ 2 ] = new parent.listing( "/comprod/mirror/index.html", 0, 0 );
+  frame1[ 3 ] = new parent.listing( "/assist/customer_service/index.html", 0, 0 );
+  frame1[ 4 ] = new parent.listing( "/toc.html", 0, 0 );
+  frame1[ 5 ] = new parent.listing( "/search/index.html", 0, 0 );
+  frame1[ 6 ] = new parent.listing( "/index.html", 0, 1 );
+}
+
+if (document.cookie != '') {
+        if (parseInt(document.cookie.indexOf('netscape_frames=1', 0)) >= 0 && nsframes == 1 && nsframes == 0 && !top.frames.length) {
+                document.writeln('<HTML><HEAD><TITLE>Welcome to Netscape</TITLE><SCRIPT LANGUAGE=JavaScript', unescape('%3E'));
+                document.write('var nsframes = 1; function makearray\( n \) {this.length = n; for\( var i = 1; i ', unescape('%3C'), '= n; i++ \) this[ i ] = 0; return this;} function other\( img, len \) {this.img = img; this.len = len; this.top = top;} function listing\( url, dot, top \) {this.url = url; this.dot = dot; this.top = top;} function register\(\) {loaded = 1; parent.frame1.location = \'/navigate/f1.html\'; parent.frame2.location = \'/navigate/f2.html\'; parent.frame3.location = \'/navigate/f3.html\'; parent.frame4.location = \'/navigate/f4.html\';} var loaded = 0; </');
+                document.write('SCRIPT></HEAD><FRAMESET ROWS=\'*,93\'><FRAME NAME=\'content\' SRC=/ndx.html MARGINHEIGHT=5 MARGINWIDTH=10 SCROLLING=\'auto\' NORESIZE><FRAMESET COLS=\'150,160,160,*\'><FRAME NAME=\'frame1\' SRC=/navigate/f1.html MARGINHEIGHT=3 MARGINWIDTH=0 SCROLLING = \'no\' NORESIZE><FRAME NAME=\'frame2\' SRC=/navigate/f2.html MARGINHEIGHT=4 MARGINWIDTH=0 SCROLLING = \'no\' NORESIZE><FRAME NAME=\'frame3\' SRC=/navigate/f3.html MARGINHEIGHT=4 MARGINWIDTH=0 SCROLLING = \'no\' NORESIZE><FRAME NAME=\'frame4\' SRC=/navigate/f4.html MARGINHEIGHT=4 MARGINWIDTH=0 SCROLLING = \'no\' NORESIZE></FRAMESET></FRAMESET></HTML', unescape('%3E'));
+        } 
+}
+//-->
+</SCRIPT>

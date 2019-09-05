@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<TITLE>Kraftwerk Bootlegs</TITLE>
+<SCRIPT LANGUAGE = "JavaScript">
+
+function MakeArray()
+        {
+        this.length = MakeArray.arguments.length
+        for (var i = 0; i < this.length; i++)
+        this[i+1] = MakeArray.arguments[i]
+        }
+
+var siteopt = new MakeArray("Select a Nine Inch Nails Bootleg",
+			"Demos and Remixes",
+			"Purest Feeling",
+			"Scary Monsters with David Bowie",
+			"When The Whip Comes Down (Woodstock)");
+
+
+var url = new MakeArray("",
+			"demos.html",
+			"feeling.html",
+			"scary.html",
+			"whip.html");
+function jumpPage(form)
+{
+        i = form.SelectMenu.selectedIndex;
+        if (i == 0) return;
+        window.location.href = url[i+1];
+}
+
+</SCRIPT>
+
+</HEAD>
+<BODY BGCOLOR = "#000000" TEXT = "White" LINK = "#B8860B" ALINK = "#8B0000" VLINK = "#B8860B">
+
+<FONT FACE="Comic Sans MS">
+<!-- begin nfheader -->
+<!-- end nfheader -->
+<CENTER><P>
+<BLOCKQUOTE>
+<FONT SIZE = 4>Nine Inch Nails Bootleg Selection Menu </FONT>
+<BR><BR>
+Simply choose the bootleg you wish to view in more depth.
+<BLOCKQUOTE>
+<SCRIPT LANGUAGE = "JavaScript">
+
+document.writeln('<FORM><TABLE BORDER = 0 CELLPADDING = 5 CELLSPACING = 0 BGCOLOR = "#F1D75A"><TR><TD><FONT SIZE = 4 FACE = "Arial">Nine Inch Nails Bootleg Selection Menu</FONT></TD></TR><TR><TD>');
+document.writeln('<SELECT NAME="SelectMenu" onChange="jumpPage(this.form)">');
+tot = siteopt.length;
+        for (var i = 1; i <= tot; i++)
+        document.write("<OPTION>" +siteopt[i]);
+document.writeln('</SELECT>');
+if (navigator.userAgent.indexOf("Mozilla/2") != -1)
+document.writeln('<INPUT TYPE = BUTTON VALUE = "Jump!">');
+document.writeln('</TD></TR></TABLE></FORM>');
+
+</SCRIPT>
+</BLOCKQUOTE>

@@ -1,0 +1,89 @@
+<html><head><title>HI!</title>
+<BODY onLoad="timerONE=window.setTimeout('scrollit_r2l(100)',500);">
+<body text="ffff00" link="ff0000" vlink="aa0000">
+
+</head>
+<body>
+<center>
+<IMG SRC="EyeBall.gif" ALIGN="CENTER">
+<IMG SRC="EyeBall.gif" ALIGN="CENTER">
+<BR>
+<IMG SRC="EyeBall.gif" ALIGN="CENTER">
+<h3>You have found</h3>
+<BR>
+<IMG SRC="EyeBall.gif" ALIGN="CENTER">
+<IMG SRC="EyeBall.gif" ALIGN="CENTER">
+<h1>S O N I C   B L U D G E O N</h1><br>
+<IMG SRC="EyeBall.gif" ALIGN="CENTER">
+<IMG SRC="EyeBall.gif" ALIGN="CENTER">
+<BR>
+<IMG SRC="EyeBall.gif" ALIGN="CENTER">
+<IMG SRC="EyeBall.gif" ALIGN="CENTER">
+<BR>
+
+<br>
+<HR>
+<h1>S O N I C   B L U D G E O N</h1><br>
+<h4>ONLINE.</h4>
+</center><br><br>
+This is the first attempt at on on-line underground music e-zine. It will
+feature whatever I feel like writing about, but that will normally be
+death/black/doom metal, grind, industrial, 80's thrash and twisted acts
+of depravity, violence and sonic torture. I may even throw in some book
+and zine reviews as I read a ton of bone-chilling short story fiction in
+addition to making myself deafer every day.
+
+Issue one's contents are non-existent at this time, but feel free to follow
+links to see where they might take you. I will be working on this as often
+as I can with my crazy schedule. So check back here often for updates and
+new features. Also, please e-mail me with suggestions and criticisms so that
+I may constantly improve this site.
+
+<center><h1>Jay Robohn<br>EDITOR</h1><br> kREATOR:<br>
+<a href="mailto:JayRobot@pipeline.com">Jay Robohn</a><br>
+<address>JayRobot@pipeline.com</address>
+</center>
+</body>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Beginning of JavaScript Applet -------------------
+function scrollit_r2l(seed)
+{
+  var msg  = "Sonic Bludgeon: The on-line guide to underground music.";
+
+  var out = " ";
+  var c   = 1;
+
+  if (seed > 100) {
+    seed--;
+    var cmd="scrollit_r2l(" + seed + ")";
+    timerTwo=window.setTimeout(cmd,100);
+  }
+  else if (seed <= 100 && seed > 0) {
+    for (c=0 ; c < seed ; c++) {
+      out+=" ";
+    }
+    out+=msg;
+    seed--;
+    var cmd="scrollit_r2l(" + seed + ")";
+    window.status=out;
+    timerTwo=window.setTimeout(cmd,100);
+  }
+  else if (seed <= 0) {
+    if (-seed < msg.length) {
+      out+=msg.substring(-seed,msg.length);
+      seed--;
+      var cmd="scrollit_r2l(" + seed + ")";
+      window.status=out;
+      timerTwo=window.setTimeout(cmd,100);
+    }
+    else {
+      window.status=" ";
+
+      timerTwo=window.setTimeout("scrollit_r2l(100)",75);
+    }
+  }
+}
+// -- End of JavaScript code -------------- -->
+
+</SCRIPT>
+</html>

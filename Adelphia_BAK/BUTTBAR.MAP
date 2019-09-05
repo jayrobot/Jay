@@ -1,0 +1,5 @@
+rect http://www.dbsinyc.com/JayRobot/Trading.htm 10,10 128,64
+rect http://www.dbsinyc.com/JayRobot/Bands.htm 138,10 230,64
+rect http://www.dbsinyc.com/JayRobot/Horror.htm 240,10 353,64
+rect http://www.dbsinyc.com/JayRobot/Links.htm 360,10 449,64
+default http://www.dbsinyc.com/JayRobot/JayPics.htm

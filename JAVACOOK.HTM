@@ -1,0 +1,626 @@
+<HTML>
+
+<!------------------------------------------------------------>
+<!-- Custom Page 'Lite' v2.0                                -->
+<!-- Written by Jonathan Feinstein 5/17/96                  -->
+<!-- Copyright (C) 1996 Netscape Communications Corporation -->
+<!------------------------------------------------------------>
+
+<HEAD>
+<TITLE>Netscape PowerStart Setup</TITLE>
+<SCRIPT LANGUAGE='JavaScript'>
+<!--
+
+// current version number.  Used for cookie version control.
+var cur_version = '02.00E00';
+
+var oldtest = GetCookie('homepage');
+if (oldtest == '0') oldtest = null;
+if (tempcookie != null && oldtest != null) { // we've got some weird hybrid
+                                             // cookie -- kill old stuff & try
+                                             // again
+document.cookie='homepage=0; expires=Wednesday, 31-Dec-80 10:12:59 GMT domain=.mcom.com path=/custom;';
+document.cookie='homepage=0; expires=Wednesday, 31-Dec-80 10:12:59 GMT domain=.netscape.com path=/custom;';
+document.cookie='homepage=0; expires=Wednesday, 31-Dec-80 10:12:59 GMT path=/custom;';
+}
+
+// set the user's version cookie if they don't have one
+var user_version = GetCookie('version');
+
+//if (user_version.substring(0,5) == '02.00') {
+// var isBuilt = GetSubCookie('custom', 1).substring(27,28);
+// if (isBuilt == 'y') location = '/custom/modify.html';
+//}
+
+function MakeArray(n) {
+   this.length = n;
+   return this
+}
+
+infosize = 9;
+infonames = new MakeArray(infosize);
+
+infonames[1] = 'Netscape Home Page';
+infonames[2] = 'Download Netscape Software';
+infonames[3] = 'Netscape Destinations';
+infonames[4] = 'Company & Products';
+infonames[5] = 'Intranet Solutions';
+infonames[6] = 'Development Partners';
+infonames[7] = 'Netscape General Store';
+infonames[8] = 'Assistance';
+infonames[9] = 'Netscape Technical Support';
+
+newssize = 12;
+newsnames = new MakeArray(newssize);
+
+newsnames[1] = 'AT&T Lead Story';
+newsnames[2] = 'CNN Interactive';
+newsnames[3] = 'CNN U.S. News';
+newsnames[4] = 'CNN World News';
+newsnames[5] = 'L.A. Times';
+newsnames[6] = 'Mercury Center';
+newsnames[7] = 'The New York Times Front Page';
+newsnames[8] = 'NewsPage';
+newsnames[9] = 'Reuters';
+newsnames[10] = 'USA Today';
+newsnames[11] = 'USA Today Nationline';
+newsnames[12] = 'Wall Street Journal';
+
+searchsize = 9;
+searchnames = new MakeArray(searchsize);
+
+searchnames[1] = 'A2Z';
+searchnames[2] = 'AltaVista';
+searchnames[3] = 'Excite';
+searchnames[4] = 'Infoseek';
+searchnames[5] = 'Lycos';
+searchnames[6] = 'Magellan';
+searchnames[7] = 'search.com';
+searchnames[8] = 'shareware.com';
+searchnames[9] = 'Yahoo';
+
+refsize = 10;
+refnames = new MakeArray(refsize);
+
+refnames[1] = 'Bartlett\'s Familiar Quotations';
+refnames[2] = 'Creating Net Sites';
+refnames[3] = 'The Gutenberg Project Master Index';
+refnames[4] = 'Internet Public Library Reference Shelf';
+refnames[5] = 'The Jefferson Project';
+refnames[6] = 'List of Usenet FAQs';
+refnames[7] = 'Roget\'s Thesaurus';
+refnames[8] = 'Thomas: Legislative Information on the Internet';
+refnames[9] = 'Webster\'s Dictionary';
+refnames[10] = 'World Factbook 1995';
+
+coolsize = 6;
+coolnames = new MakeArray(coolsize);
+
+coolnames[1] = 'Cool Site of the Day';
+coolnames[2] = 'Interesting Devices Connected to the Net';
+coolnames[3] = 'Netscape What\'s Cool';
+coolnames[4] = 'Point Communication\'s Best';
+coolnames[5] = 'Project Cool Sighting';
+coolnames[6] = 'Yahoo\'s Picks of the Week';
+
+entsize = 10;
+entnames = new MakeArray(entsize);
+
+entnames[1] = 'Atlantic Monthly';
+entnames[2] = 'Discovery Channel Online';
+entnames[3] = 'Disney.com Daily';
+entnames[4] = 'Firefly';
+entnames[5] = 'HomeArts';
+entnames[6] = 'HotWired';
+entnames[7] = 'MovieLink';
+entnames[8] = 'Sony Music Online';
+entnames[9] = 'TV Guide On.Line Listings';
+entnames[10] = 'Yahooligans';
+
+bussize = 12;
+busnames = new MakeArray(bussize);
+
+busnames[1] = 'American Stock Exchange Link Library';
+busnames[2] = 'Bank of America';
+busnames[3] = 'CNN Financial News';
+busnames[4] = 'Federal Express';
+busnames[5] = 'Lombard Institutional Brokerage';
+busnames[6] = 'Merrill Lynch';
+busnames[7] = 'Networth';
+busnames[8] = 'Quote.com';
+busnames[9] = 'SchwabOnline';
+busnames[10] = 'USA Today Money';
+busnames[11] = 'Wells Fargo';
+busnames[12] = 'WSJ Money & Investing';
+
+shopsize = 5;
+shopnames = new MakeArray(shopsize);
+
+shopnames[1] = 'CyberShop';
+shopnames[2] = 'Internet Shopping Network';
+shopnames[3] = 'JCPenney';
+shopnames[4] = 'Lands\' End';
+shopnames[5] = 'The Sharper Image';
+
+sportssize = 6;
+sportsnames = new MakeArray(sportssize);
+
+sportsnames[1] = 'ESPNET SportsZone';
+sportsnames[2] = 'MLB@BAT';
+sportsnames[3] = 'NBA';
+sportsnames[4] = 'NFL';
+sportsnames[5] = 'NHL OpenNet';
+sportsnames[6] = 'SportsLine USA';
+
+techsize = 12;
+technames = new MakeArray(techsize);
+
+technames[1] = '@ Computerworld';
+technames[2] = 'CMP\'s TechWeb';
+technames[3] = 'c|net';
+technames[4] = 'IDG';
+technames[5] = 'InfoWorld Electric';
+technames[6] = 'Macworld Online';
+technames[7] = 'Netscape World Online';
+technames[8] = 'NetworkWorld Fusion';
+technames[9] = 'The New York Times CyberTimes';
+technames[10] = 'PC Week Online';
+technames[11] = 'Red Herring';
+technames[12] = 'ZDNet';
+
+personalsize = 0;
+
+function getCookieVal (offset) {
+  if (offset == -1) return null;
+  var endstr = document.cookie.indexOf (';', offset);
+  if (endstr == -1)
+    endstr = document.cookie.length;
+  return unescape(document.cookie.substring(offset, endstr));
+}
+
+function GetCookie (name) {
+  var arg = name + '=';
+  var i = 0;
+  if (document.cookie != '') var start = document.cookie.indexOf (arg, 0);
+  else start = -1;
+  if (start != -1) start = start + arg.length;
+  return getCookieVal (start);
+}
+
+function SetCookie (name, thevalue) {
+var temp = '';
+var tempchar;
+for (var z = 0 ; z < thevalue.length ; z++) {
+	tempchar = thevalue.substring(z, z+1);
+	if (tempchar != ';' && tempchar != '%') {
+		temp = temp + tempchar;
+	}
+}
+if (temp == '') temp = ' ';
+thevalue = temp;
+  var argv = SetCookie.arguments;
+  var argc = SetCookie.arguments.length;
+  document.cookie = name + ' = ' + thevalue + '; expires=Sunday, 31-Dec-99 10:12:59 GMT domain=.mcom.com path=/custom;';
+  document.cookie = name + ' = ' + thevalue + '; expires=Sunday, 31-Dec-99 10:12:59 GMT domain=.netscape.com path=/custom;';
+}
+
+function GetSubCookie (name, thevalue)  {
+  var start = 0;
+  var end = 0;
+  var count = 0;
+  var curchar = 0;
+  var thecookie = GetCookie(name);
+  thevalue = thevalue - 1;
+  while (count < thevalue)
+	{
+	if ( thecookie.substring(curchar, curchar+2) == '::' || thecookie.substring(curchar, curchar+2) == '##' )
+		{
+		count = count + 1;
+		curchar = curchar + 1;
+		}
+	curchar = curchar + 1;
+	}
+  start = curchar;
+  while ( thecookie.substring(curchar, curchar+2) != '::' && thecookie.substring(curchar, curchar+2) != '##' )
+	{
+	curchar++;
+	}
+  end = curchar;
+  return thecookie.substring(start, end);
+}
+
+function SetSubCookie (name, number, thevalue) {
+var temp = '';
+var tempchar;
+if (thevalue.length == 1) {
+	if (thevalue != ';' && thevalue != '%') {
+		temp = thevalue;
+	} else {
+		temp = ' ';
+	}
+} else {
+for (var z = 0 ; z < thevalue.length ; z++) {
+	tempchar = thevalue.substring(z, z+1);
+	if (tempchar != ';' && tempchar != '%') {
+		temp = temp + tempchar;
+	}
+}
+}
+if (temp == '') temp = ' ';
+thevalue = temp;
+  var start = 0;
+  var end = 0;
+  var count = 0;
+  var curchar = 0;
+  var thecookie = GetCookie(name);
+  var newcookie;
+  number = number - 1;
+  while (count < number)
+	{
+	if ( thecookie.substring(curchar, curchar+2) == '::' || thecookie.substring(curchar, curchar+2) == '##' )
+		{
+		count = count + 1;
+		curchar = curchar + 1;
+		}
+	curchar = curchar + 1;
+	}
+  start = curchar;
+  while ( thecookie.substring(curchar, curchar+2) != '::' && thecookie.substring(curchar, curchar+2) != '##' )
+	{
+	curchar++;
+	}
+  end = curchar;
+  newcookie = thecookie.substring(0, start) + thevalue + thecookie.substring(end, thecookie.length);
+  document.cookie = name + ' = ' + newcookie + '; expires=Sunday, 31-Dec-99 10:12:59 GMT domain=.mcom.com path=/custom;';
+  document.cookie = name + ' = ' + newcookie + '; expires=Sunday, 31-Dec-99 10:12:59 GMT domain=.netscape.com path=/custom;';
+}
+
+function deleteBookmark (name, number) {
+  var start = 0;
+  var end = 0;
+  var count = 0;
+  var curchar = 0;
+  var thecookie = GetCookie(name);
+  var newcookie;
+  while (count < number)
+	{
+	if ( thecookie.substring(curchar, curchar+2) == '##' )
+		{
+		count = count + 1;
+		curchar = curchar + 1;
+		}
+	curchar = curchar + 1;
+	}
+  start = curchar;
+  while ( thecookie.substring(curchar, curchar+2) != '##' )
+	{
+	curchar++;
+	}
+  end = curchar+2;
+  newcookie = thecookie.substring(0, start) + thecookie.substring(end, thecookie.length);
+  document.cookie = name + ' = ' + newcookie + '; expires=Sunday, 31-Dec-99 10:12:59 GMT domain=.mcom.com path=/custom;';
+  document.cookie = name + ' = ' + newcookie + '; expires=Sunday, 31-Dec-99 10:12:59 GMT domain=.netscape.com path=/custom;';
+}
+
+function buildIt () {
+	// make the cookie built
+	var temp = GetSubCookie('custom', 1);
+	var newcookie = temp.substring(0,27) + 'y' + temp.substring(28,48);
+	SetSubCookie('custom', 1, newcookie);
+//	SetSubCookie('custom', 1, temp.substring(0,27) + 'y' + temp.substring(28,48));
+
+	location = '/custom/page/show_page.html';
+//	parent.location = '/custom/page/show_page.html';
+}
+
+function isSubstring (superstring, sub) 
+{
+  var length = sub.length;
+  var cur = 0;
+  var found = 0;
+  while (cur + length <= superstring.length) {
+    if (superstring.substring(cur, cur+length) == sub) {
+ 	found = found + 1;
+    }
+    cur = cur + 1;
+  }
+  return found;
+}
+
+// *** FUNCTIONS FOR USE ONLY WITH EXAMPLE.HTML ***:
+
+function isSub(a, b) { // assigns values to numarray, and keeps code short
+ numarray[a] = isSubstring(GetSubCookie('custom', b), '1');
+}
+
+function dw(string) {
+ examplewin.document.write(string);
+}
+
+function display_date() {
+
+ date = new Date();
+
+ var dnum = date.getDay();
+ var dmnum = date.getDate();
+ var mnum = date.getMonth();
+ var year = date.getYear();
+ var day_of_week = '';
+ var month = '';
+
+ if(mnum == 0) month = 'January';
+ if(mnum == 1) month = 'February';
+ if(mnum == 2) month = 'March';
+ if(mnum == 3) month = 'April';
+ if(mnum == 4) month = 'May';
+ if(mnum == 5) month = 'June';
+ if(mnum == 6) month = 'July';
+ if(mnum == 7) month = 'August';
+ if(mnum == 8) month = 'September';
+ if(mnum == 9) month = 'October';
+ if(mnum == 10) month = 'November';
+ if(mnum == 11) month ='December';
+
+ if(dnum == 0) day_of_week = 'Sunday';
+ if(dnum == 1) day_of_week = 'Monday';
+ if(dnum == 2) day_of_week = 'Tuesday';
+ if(dnum == 3) day_of_week = 'Wednesday';
+ if(dnum == 4) day_of_week = 'Thursday';
+ if(dnum == 5) day_of_week = 'Friday';
+ if(dnum == 6) day_of_week = 'Saturday';
+
+ var date_to_show = day_of_week + ', ' + month + ' ' + dmnum + ', 19' + year;
+
+ dw('<CENTER>' + date_to_show + '</CENTER>');
+} //end display date
+
+function drawRule(local)
+{
+ var sheight=6;
+ var n=local[12];
+ if (n == '06') sheight=1;
+ if (n == '18' || n == '19' || n == '22' || n == '23' || n == '25' || n == '26') {sheight=3;}
+ if (n == '03' || n == '11' || n == '12' || n == '13') sheight=4;
+ if (n == '10' || n == '15' || n == '20' || n == '27' || n == '28') sheight=5;
+ if (n == '02' || n == '14') sheight=8;
+ if (n == '01') sheight=11;
+ if (n == '08') sheight=12;
+ if (n == '09') sheight=13;
+ dw('<CENTER><IMG SRC=/custom/images/rules/srule' + local[12] + '.gif WIDTH=270 HEIGHT=' + sheight + '></CENTER>');
+}
+
+function shortRule(local)
+{
+ var theight=6;
+ var t=local[12];
+ if (t == '06') theight=1;
+ if (t == '18' || t == '19' || t == '22' || t == '23' || t == '25' || t == '26') {theight=3;}
+ if (t == '03' || t == '11' || t == '12' || t == '13') theight=4;
+ if (t == '10' || t == '15' || t == '20' || t == '27' || t == '28') theight=5;
+ if (t == '02' || t == '14') theight=8;
+ if (t == '01') theight=11;
+ if (t == '08') theight=12;
+ if (t == '09') theight=13;
+ dw('<IMG SRC=/custom/images/rules/trule' + local[12] + '.gif WIDTH=133 HEIGHT=' + theight + '>');
+}
+
+function complex_table(thenumarray, words, thecur, thetotal)
+{
+ if (thenumarray != 0) {
+	dw('<LI>' + thenumarray + ' ' + words);
+	if (thenumarray != 1) dw('s');
+	thecur++;
+	if ((thecur*2 == thetotal || thecur*2 == (thetotal+1)) && thetotal > 2) {
+		dw('<BR></TD><TD WIDTH=50% VALIGN=TOP>');
+	} else {
+		dw('<P>');
+	}
+ }
+ return thecur;
+}
+
+function simple_entry(thenumarray, words)
+{
+ if (thenumarray != 0) {
+	dw('<LI>' + thenumarray + ' ' + words);
+	if (thenumarray != 1) dw('s');
+	dw('<P>');
+ }
+}
+
+function entry_1a(thenumarray, words)
+{
+ if (thenumarray != 0) {
+	dw('<IMG SRC=/custom/images/1a_GIFs/1a_preview.gif WIDTH=51 HEIGHT=17><BR>' + thenumarray + ' ' + words);
+	if (thenumarray != 1) dw('s');
+	dw('<P>');
+ }
+}
+
+function entry_1b(thenumarray, words, local)
+{
+ if (thenumarray != 0) {
+	drawRule(local);
+	dw('<IMG SRC=/custom/images/1b_GIFs/1b_preview.gif WIDTH=270 HEIGHT=14><TABLE WIDTH=270><TR><TD ALIGN=LEFT><DL><DT><DD>' + thenumarray + ' ' + words);
+	if (thenumarray != 1) dw('s');
+	dw('</DD></DL></TD></TR></TABLE>');
+ }
+}
+
+function entry_1c(thenumarray, words, indent, local)
+{
+ if (thenumarray != 0) {
+	for (var i = 0 ; i < indent ; i++) {dw('<DL><DT><DD>');}
+	shortRule(local);
+	dw('<BR><B>L i n k s</B><BR>' + thenumarray + ' ' + words);
+	if (thenumarray != 1) dw('s');
+	for (var i = 0 ; i < indent ; i++) {dw('</DD></DL>');}
+	indent++;
+	if (indent == 4) indent = 0;
+ }
+ return indent;
+}
+
+function entry_2a(thenumarray, words, count2a, num_lists)
+{
+ if (thenumarray != 0) {
+	dw('<IMG SRC=/custom/images/2a_GIFs/2a_preview.gif WIDTH=130 HEIGHT=13><BR>' + thenumarray + ' ' + words);
+	if (thenumarray != 1) dw('s');
+	dw('<P>');
+	count2a++;
+	if (count2a*2 == num_lists || count2a*2 == (num_lists+1)) dw('</TD><TD ALIGN=LEFT WIDTH=50% VALIGN=TOP>');
+ }
+ return count2a;
+}
+
+function entry_2b(thenumarray, words, ruleflag, local)
+{
+ if (thenumarray != 0) {
+	if (ruleflag == 1) shortRule(local);
+	ruleflag = 1;
+	dw('<P><B>L i n k s</B><BR>' + thenumarray + ' ' + words);
+	if (thenumarray != 1) dw('s');
+	dw('<P>');
+ }
+ return ruleflag;
+}
+
+function entry_3a(thenumarray, words, count3a, num_lists)
+{
+ if (thenumarray != 0) {
+	dw('<IMG SRC=/custom/images/3a_GIFs/3a_preview.gif WIDTH=85 HEIGHT=12><P>' + thenumarray + ' ' + words);
+	if (thenumarray != 1) dw('s');
+	dw('<P>');
+	count3a++;
+	if (count3a*2 == num_lists || count3a*2 == (num_lists+1)) dw('</TD><TD ALIGN=LEFT WIDTH=92 VALIGN=TOP>');
+ }
+ return count3a;
+}
+
+function entry_3b(thenumarray, words, count3b, num_lists)
+{
+ if (thenumarray != 0) {
+	dw('<IMG SRC=/custom/images/3b_GIFs/3b_preview.gif WIDTH=25 HEIGHT=25><BR><B>Links</B><BR><HR SIZE=1 NOSHADE WIDTH=84><P>' + thenumarray + ' ' + words);
+	if (thenumarray != 1) dw('s');
+	dw('<P>');
+	count3b++;
+	if (count3b*2 == num_lists || count3b*2 == (num_lists+1)) dw('</TD><TD ALIGN=CENTER WIDTH=92 VALIGN=TOP>');
+ }
+ return count3b;
+}
+
+function isFlash(str, local) {
+ if (local[9] == 'y') {
+	dw(str + 'The latest news on Netscape software releases and other late-breaking information');
+	return 1;
+ } else return 0;
+}
+
+// *** NEW DOCUMENT.COOKIE DECLARATIONS ***
+
+var macorwin = 0; // not Mac or Win 3.1
+if (navigator.userAgent.indexOf('Macintosh') != -1) macorwin = 1; // Mac
+if (navigator.userAgent.indexOf('Win16') != -1 || navigator.userAgent.indexOf('Windows') != -1) macorwin = 1; // Win 3.1
+
+// set the user's version cookie if they don't have one
+var tempcookie = user_version;
+
+if ((tempcookie != null && tempcookie.substring(0,5) != '02.00') || oldtest != null) {location = '/custom/page/show_page.html';}
+else
+{
+	if (tempcookie == null) {
+		SetCookie('version', cur_version);
+	}
+
+	var tempcookie = GetCookie('custom');
+	if ((tempcookie == null || tempcookie == '0') && macorwin == '0') {
+		SetCookie('custom', 'n00FFFFFF000000CC0000006699n28yny10yNSCP        ::Welcome!::blank::011111001::0000000010::001000::101000000::110001110101::0010111111::111101111001::01100::100001::011100000001::');
+	}
+	if ((tempcookie == null || tempcookie == '0') && macorwin == '1') {
+		SetCookie('custom', 'n00FFFFFF000000CC0000006699n28yny10nNSCP        ::Welcome!::blank::011111001::0000000010::001000::101000000::110001110101::0010111111::111101111001::01100::100001::011100000001::');
+	}
+
+	tempcookie = GetCookie('pl');
+	if (tempcookie == null) {
+		SetCookie('pl', 'blank');
+	} else {
+		personalsize = isSubstring(tempcookie, '##');
+	}
+
+	tempcookie = GetCookie('note');
+	if (tempcookie == null) {
+		SetCookie('note', 'Reminder: Add this page to your bookmarks list.');
+	}
+
+	tempcookie = GetCookie('nc');
+	if (tempcookie == null) {
+		SetCookie('nc', 'blank');
+	}
+
+	// initialize numarray for use by EXAMPLE.HTML
+	var numarray = new MakeArray(11);
+	numarray[1] = personalsize; // pl
+	isSub(2,8); //news
+	isSub(3,10); //bus
+	isSub(4,12); //sports
+	isSub(5,13); //tech
+	isSub(6,4); //search
+	isSub(7,5); //ref
+	isSub(8,9); //ent
+	isSub(9,11); //shop
+	isSub(10,7); //info
+	isSub(11,6); //cool
+}
+//-->
+</SCRIPT>
+</HEAD>
+<FRAMESET ROWS="*,113">
+	<FRAMESET COLS="40%,60%">
+	<FRAME
+		NAME="mainpage"
+		SRC="blank.html"
+		MARGINHEIGHT=5
+		MARGINWIDTH=10
+		SCROLLING = "auto">
+	<FRAME
+		NAME="examplewin"
+		SRC="welcome.html"
+		MARGINHEIGHT=5
+		MARGINWIDTH=10
+		SCROLLING = "auto">
+	</FRAMESET>
+	<FRAME
+		NAME="customwin"
+		SRC="blank.html"
+		MARGINHEIGHT=5
+		MARGINWIDTH=10
+		SCROLLING = "auto">
+</FRAMESET>
+
+<NOFRAME>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#FF0000" ALINK="#FF0000">
+
+<CENTER>
+<img src="/images/home_ban.jpg" WIDTH=468 HEIGHT=32 BORDER=0><P>
+
+Sorry.  You need to be using Navigator 2.0 to take advantage of our customization features.  Once you <A HREF="http://home.netscape.com/comprod/mirror/index.html">download</A> Navigator 2.0 and install it, please return to create your PowerStart page.<P>
+<CENTER>
+<HR SIZE=4>
+<P>
+<A NAME=navbar></A>
+<A HREF="http://home.netscape.com/misc/bottom.map"><IMG SRC="/images/navigation_bar.gif"
+ISMAP BORDER=0 WIDTH=468 HEIGHT=32></a>
+<P>
+
+
+<FONT SIZE=-1>
+Corporate Sales: 415/937-2555; Personal Sales: 415/937-3777; Federal Sales: 415/937-3678<BR>
+If you have any questions, please visit <A HREF="http://home.netscape.com/assist/customer_service/index.html">Customer Service</A>.<P>
+Copyright &copy; 1996 <A HREF="http://home.netscape.com/misc/contact_info.html">Netscape Communications Corporation</A></FONT>
+
+</CENTER>
+<P>
+<P>
+</BODY>
+</NOFRAME>
+</HTML>

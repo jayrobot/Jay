@@ -1,0 +1,308 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>Andy's Menu Bar</TITLE>
+
+</HEAD>
+
+<BODY BGCOLOR=#000000 TEXT=#ffffff>
+
+<CENTER>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+
+
+with (top.window.location) {baseURL = href.substring (0,href.lastIndexOf ("/") + 1)}
+
+total_sd = 0;
+
+last_overID = 0;
+
+selected_itemID = 0;
+
+total_toc_items = 0;
+
+current_overID = 0;
+
+function toc_mouseover (itemID) {
+
+        current_overID = itemID;
+
+        if (current_overID != last_overID) {
+
+                if (current_overID != selected_itemID) {
+
+                        document.images [current_overID-1].src = toc_item [itemID].toc_img_on.src;
+
+                }
+
+                if (last_overID != 0 && last_overID != selected_itemID) {
+
+                        document.images [last_overID-1].src = toc_item [last_overID].toc_img_off.src;
+
+                }
+
+                last_overID = current_overID;
+
+        }
+
+}
+
+function toc_select (itemID) {
+
+        if (itemID != selected_itemID) {
+
+                if (selected_itemID != 0) {document.images [selected_itemID-1].src = toc_item [selected_itemID].toc_img_off.src}
+
+                selected_itemID = itemID;
+
+                if (selected_itemID != 0) {document.images [selected_itemID-1].src = toc_item [selected_itemID].toc_img_inarea.src}
+
+        }
+
+}
+
+
+
+function toc_click (itemID) {
+
+        with (toc_item [itemID]) {
+
+                if (link != "[spacer]") {
+
+                        if (target == "top") {
+
+                                top.location.href = link;
+
+                        } else {
+
+                                top.content.location.href = link;
+
+                        }
+
+                        toc_select (itemID);
+
+                }
+
+        }
+
+}
+
+
+
+function toc_mouseout () {
+
+        if (current_overID != 0 && current_overID != selected_itemID) {
+
+                document.images [current_overID-1].src = toc_item [current_overID].toc_img_off.src;
+
+        }
+
+        last_overID = 0;
+
+        current_overID = 0;
+
+}
+
+
+
+function toc_item (name,link,target) {
+
+        this.name = name;
+
+        this.link = link;
+
+        this.target = target;
+
+        imgURL = baseURL + link;
+
+        img_prefix = name.toLowerCase ();
+
+        new_img_prefix = "";
+
+        for (var charno = 0; charno < img_prefix.length; charno++) {
+
+                subchar = img_prefix.substring (charno,charno+1);
+
+                if (subchar == " ") {
+
+                        subchar = "-";
+
+                } else {
+
+                        if ("abcdefghijklmnopqrstuvwxyz0123456789".indexOf (subchar) == -1) {subchar = ""};
+
+                }
+
+                new_img_prefix += subchar;
+
+        }
+
+        img_prefix = baseURL + "images/java/" + new_img_prefix;
+
+        this.toc_img_off = new Image (120,22);
+
+        this.toc_img_on = new Image (120,22);
+
+        this.toc_img_inarea = new Image (120,22);
+
+        this.toc_img_off.src = img_prefix + "_off.gif";
+
+        if (this.link == "[spacer]") {
+
+                this.toc_img_on.src = this.toc_img_off.src;
+
+                this.toc_img_inarea.src = this.toc_img_off.src;
+
+        } else {
+
+                this.toc_img_on.src = img_prefix + "_on1.gif";
+
+                this.toc_img_inarea.src = img_prefix + "_on2.gif";
+
+        }
+
+}
+
+
+
+function new_toc_item (name,link,target) {
+
+        total_toc_items++;
+
+        toc_item [total_toc_items] = new toc_item (name,link,target);
+
+}
+
+
+
+function arrived (symbolicID) {
+
+        self.focus ();
+
+        var tempURL;
+
+        if (symbolicID != null) {
+
+                locationID = symbolicID;
+
+        } else {
+
+                locationID = top.content.location.href;
+
+                if (locationID.indexOf (baseURL) == -1) {
+
+                        locationID = "[outside]";
+
+                } else {
+
+                        locationID = locationID.substring (baseURL.length,locationID.length);
+
+                }
+
+        }
+
+        //<SEE IF AREA ENTERED>
+
+        bestmatch_no = 0;
+
+        bestmatch_length = 0;
+
+        locationID = top.content.location.href;
+
+        for (var itemno = 1; itemno <= total_toc_items; itemno++) {
+
+                with (toc_item [itemno]) {
+
+                        tempURL = baseURL + link;
+
+                        tempURL = tempURL.substring (0,tempURL.lastIndexOf ("/"));
+
+                        if (locationID.indexOf (tempURL) == 0) {
+
+                                if (tempURL.length > bestmatch_length) {
+
+                                        bestmatch_no = itemno;
+
+                                        bestmatch_length = tempURL.length;
+
+                                }
+
+                        }
+
+                }
+
+        }
+
+        toc_select (bestmatch_no);
+
+        toc_mouseout ();
+
+}
+
+new_toc_item ("Top","[spacer]","");
+new_toc_item ("Home","homepage.htm","");
+new_toc_item ("Awards","awards.htm","");
+new_toc_item ("Bvault","bvault.htm","");
+new_toc_item ("Contests","contest.htm","");
+new_toc_item ("Digital","digital.htm","");
+new_toc_item ("Email","Mailto:andy@andyart.com","");
+new_toc_item ("Faq","faq.htm","");
+new_toc_item ("Free","fimages.htm","");
+new_toc_item ("Hot","links.htm","");
+new_toc_item ("HTML","htmltips.htm","");
+new_toc_item ("gt","graftips.htm","");
+new_toc_item ("PS","photoshop/index.html","");
+new_toc_item ("Sguest","guestbok.htm","");
+new_toc_item ("Vguest","vwguest.htm","");
+new_toc_item ("Web","web.htm","");
+new_toc_item ("workr","workr.htm","");
+new_toc_item ("HomePage","homepage.htm","");
+
+
+for (var itemno = 1; itemno <= total_toc_items; itemno++) {
+
+        with (toc_item [itemno]) {
+
+                if (link == "[spacer]") {
+
+                        document.writeln ('<BR><IMG SRC="' + toc_item [itemno].toc_img_off.src + '"  BORDER=0 ALT="' + name + '"></A><BR>');
+
+//                      document.writeln ('<BR>');
+
+//                      document.writeln ('<A HREF="javascript:top.toc_frame.toc_click (' + itemno + ')" ONMOUSEOVER="toc_mouseover (' + itemno + '); with (top.toc_frame) {self.status = toc_item [' + itemno + '].name + ' + "'" + ' topics' + "'" + ';} return true;" ONMOUSEOUT="toc_mouseout ()"><IMG SRC="' + toc_item [itemno].toc_img_off.src + '"  BORDER=0 ALT="' + name + '"></A><BR>');
+
+                } else {
+
+                        document.writeln ('<A HREF="javascript:top.toc_frame.toc_click (' + itemno + ')" ONMOUSEOVER="toc_mouseover (' + itemno + '); with (top.toc_frame) {self.status = ' + "' Go to '" + ' + toc_item [' + itemno + '].name;} return true;" ONMOUSEOUT="toc_mouseout (); self.status = ' + "''" +'; return true"><IMG SRC="' + toc_item [itemno].toc_img_off.src + '"  BORDER=0 ALT="' + name + '"></A><BR>');
+
+                }
+
+        }
+
+}
+
+
+
+arrived ();
+
+
+
+
+
+
+
+</SCRIPT>
+
+
+
+<BR>
+
+</CENTER>
+
+</BODY>
+
+</HTML>
+

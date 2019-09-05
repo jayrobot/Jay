@@ -1,0 +1,16 @@
+<NOFRAMES>
+<H1ALIGN CENTER><BLINK>Frame ALERT!</BLINK></H1>
+<P>
+This document is designed to be viewed using <B>Netscape 2.0</B>'s Frame features.  If you are seeing this message, you are using a frame<I>challenged</I>browser.
+</P>
+<P>
+A<B>Frame-capable</B>browser can be found at<A HREF="http://www.netscape.com"><IMG align center SRC="file:///d|/mydocu~1/netsc.gif"></A>
+</P>
+</NOFRAMES>
+ <FRAME SRC="timer.htm">
+ <FRAME SRC="left.htm">
+</FRAMESET>
+<FRAME NAME="MAIN" SRC="timo.htm">
+</FRAMESET>
+</HTML>
+

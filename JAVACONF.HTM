@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<TITLE>Nuclear Blast</TITLE>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+function eingabe_ok(form)
+{
+//	alert("Updating...please be patient !");
+
+	if(form.BAND.value.length==0 && form.TITEL.value.length==0)
+	{
+		alert("You have to type in at least 1 character!\nOtherwise you get no serach result,.\nso try it again.");
+		return false;
+	}
+
+	form.submit();
+	return true;
+}
+
+</SCRIPT>	
+</HEAD>
+
+<BODY BACKGROUND="/gif/back1.jpg" BGCOLOR="#000000" LINK="#ff0000" VLINK="#ff0000" ALINK="#ff0000" TEXT="#ffffff">
+
+<CENTER>
+<h1 align=left><font color=c0c0c0>Metal <i>Shop</i></font>
+<HR ALIGN=left SIZE=2 WIDTH=170></h1>
+<P>
+
+<FORM METHOD="POST" NAME="BESTELL" ACTION="/cgi/java/nb_out.cgi">
+
+<TABLE FRAME=BOX BORDER=3 BGCOLOR=008045>
+<TR>
+<TH ALIGN=LEFT>Band:
+<TD><INPUT TYPE="TEXT" NAME="BAND" SIZE=30>
+<TR>
+<TH ALIGN=LEFT>Title:
+<TD><INPUT TYPE="TEXT" NAME="TITEL" SIZE=30>
+<TR>
+<TH COLSPAN=2><INPUT TYPE="BUTTON" VALUE="Search" onClick=eingabe_ok(this.form)>
+</TABLE>
+<SCRIPT>top.frames[4].document.BESTELL.BAND.focus();</SCRIPT> 
+</FORM>
+
+<HR ALIGN=center SIZE=2 WIDTH=240>
+<p>
+<FONT SIZE=-1>
+<CENTER>
+(Just a few characters are necessary !)
+</FONT>
+</body>
+</html>
